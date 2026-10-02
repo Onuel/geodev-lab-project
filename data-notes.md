@@ -1,41 +1,41 @@
 # Data notes
+**Week 2 deliverable.** GeoDev Lab Africa, Cohort One.
 
-## GRID3 Nigeria Operational LGA Boundaries
--Source: https://data.grid3.org
--Downloaded: 12th September 2026
-- features 774 with 10 Columns 
-Covers my LGA fully
-658KB
-The operational wards is not available for Lagos even with the recent update of 3.0 on the grid3 website.
+Author: Emmanuel
 
-## Elevation SRTM data
--Portal.opentopography.org
--Downloaded: 12th September 2026
-1.22MB
+## GRID3 Nigeria Settlement Extents v4.1 (published August 2026)
+- Source: https://data.grid3.org/datasets/GRID3::grid3-nga-settlement-extents-v4-1/about
+- Downloaded: 12/09/2026
+- Columns: fid (integer), block_id (text), country (text) iso3 (text), block_area_sqm (decimal), block_perimeter (decimal), block_neigbor_count (integer), building_count (integer), building_area_max (decimal), building_area_sum (decimal), building_area_median (decimal), building_area_stdev (decimal), building_area_percentage (decimal), extent_type (text), mgrs_code (text), ndvi_mean (decimal), evi_mean (decimal), building_max_height (decimal), building_mean_height (decimal), blocks_per_settl_extent (integer), building_count_density_quantile_rank (decimal), building_max_area_quantile_rank (decimal), building_count_density (decimal), bd_class (text), ma_class (text), composite_class (text)
+- No specific name field
+- Covers my LGA fully
 
 
-## GRID3 Nigeria Settlements Extent v4.1
--Source: https://data.grid3.org
--Downloaded: 12th September 2026
-651mb
+## OSM river, extracted via QuickOSM
+- Query: waterway=  rivers, streams, drains and canal within Eti-Osa LGA extent
+- Extracted: 12/09/2026
+- 724 features, lines
+- Coverage looks good in both built-up area and edges
 
+## OSM coastline, extracted via QuickOSM
+- Query: natural= coastline within Eti-Osa LGA extent
+- Extracted: 12/09/2026
+- 724 features, lines
+- Coverage looks good in both built-up area and edges
 
-## OSM  with QuickOSM
--Downloaded : Waterways 
-            : Coastline
-	    : Lagoons
-- many columns have NULL
-Exported and Saved as Geopackage in the Raw Folder.
+## OSM Lagoon, extracted via QuickOSM
+- Query: natural= water within Eti-Osa LGA extent
+- Extracted: 12/09/2026
+- 86 features, lines
+- Coverage looks good in both built-up area and edges
 
-## CRS and Preparation
--Source vector layers arrived in **EPSG:4326 (WGS 84)**.
--Study area: **Eti-Osa LGA**, extracted from **GRID3 LGA boundaries**.
--Settlements, waterways/watercourses, wards and study boundary** were prepared for analysis and reprojected to **EPSG:32631 (WGS 84 / UTM Zone 31N)** for accurate distance and area measurements.
-* Waterways were obtained from **OpenStreetMap (QuickOSM)** and prepared for the **200 m watercourse buffer** analysis.
-* Area check: **177.932 km²**. This differs from published figures of **174.90 km², 174.067 km², and approximately 192–193 km²**; the GIS-derived value was retained and flagged.
--CRS check:** analysis layers verified as EPSG:32631.
--Coordinate check:** settlement latitude/longitude values checked for missing or invalid records.
--Spatial extent check:** settlements and waterways checked against the Eti-Osa boundary.
--Geometry check:** layers checked for invalid/problematic geometries before analysis.
--Clipping/reprojection check:** outputs visually checked for correct alignment with the study boundary.
--Working/analysis-ready files are stored in **`data/processed/`**; raw source files remain untouched.
+## Elevation — Copernicus DEM (30 m) 
+Source — https://portal.opentopography.org - Geotiff  
+- Downloaded: 13/09/2026
+
+## CRS and preparation
+-All source layers arrived in EPSG:4326
+-Study area: Eti-Osa L.G.A., Lagos State, Nigeria, extracted from GRID3 Settlements extent 4.1
+-All layers reprojected and clipped to study area, EPSG:32632 (WGS84-UTM ZONE 32N)
+-Area check: Eti-Osa L.G.A.: 177.932 square kilometers (does not match published figures which states that Eti-Osa has an area of 174.90 or 174.067 square km). so my computed area is about 3 square km larger than the published record
+-working files in data/processed/, raw files untouched and not pushed to GitHub due to large file sizes. Only the processed files were pushed because they have manageable file sizes
