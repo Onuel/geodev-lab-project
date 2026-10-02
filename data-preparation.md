@@ -15,7 +15,8 @@ What I reprojected, what I clipped, what I checked, and what I fixed.
 
 | Dataset | CRS as downloaded | CRS after | Operation |
 |---|---|---|---|
-| <name> | EPSG:4326 | EPSG:32631 | Reprojected |
+| Settlement Extent | EPSG:4326 | EPSG:32631 | Reprojected |
+| Elevation | EPSG:4326 | EPSG:32631 | Reprojected |
 
 
 ## 2. Clipping to the study area
