@@ -13,3 +13,4 @@ See project-brief.md for the full brief.
 
 ## Month 2: Development environment and early python
 - Week 5: Set up PYTHON, VS Code and the terminal. `hello.py` runs
+- Week 6: set up the project with uv and added pandas. Check.py prints the pandas version.
